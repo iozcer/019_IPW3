@@ -40,11 +40,15 @@ k-omega SST turbulence model was used. Roughness was included through Sand Grain
 
 **Droplet Trajectory Algorithm:**
 
-Drop3D (Fensap-Ice 2025R2 package) solver was used to compute droplet trajectories. Particle drag was modeled using Extended Reynolds drag model. Default solver accuracy was used for computations. 
+Drop3D (Fensap-Ice 2025R2 package) solver was used to compute droplet trajectories. Particle drag was modeled using Extended Reynolds drag model. Default solver accuracy was used for computations.
 
 **Thermodynamic Algorithm:**
 
-Ice accretion was computed using ICE3D (Fensap-Ice 2025R2 package) solver and extended icing data (EID) module. Impact Ice density model was used for ice density prediction. Simulations were done with single-step approach.
+Ice accretion was computed using ICE3D (Fensap-Ice 2025R2 package) solver and extended icing data (EID) module. Impact Ice density model was used for ice density prediction. Simulations were done with single-step \& multi-step approach. In case of multi-step approach 1-minute intervals have been used for ice accretion before updating the mesh and aerodynamic \& drop solutions.
+
+**Mesh deformation Algorithm:**
+
+For multi-step simulations ALE morphing method was selected in Fensap-Ice for updating the mesh after each shot. L2, L3, L4 meshes successfully morphed for entire icing duration from the test, while L1 mesh due to fine mesh and ice shape fidelity produced negative elements after 5th shot. 
 
 ## Other Information
 
